@@ -91,7 +91,7 @@ def write_logfile(line, print_to_console=True):
     :param print_to_console: Whether to also print to console.
     :return: None.
     """
-    timestamp = datetime.datetime.now().astimezone().isoformat(" ")
+    timestamp = datetime.datetime.utcnow().isoformat(" ") + "+00:00"  # Must add this because isoformat doesnt include timezone.
     txt = timestamp + ": " + line
 
     if print_to_console:
